@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KasController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\KatalogController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PengirimanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +30,12 @@ require __DIR__.'/auth.php';
 
 Route::middleware('auth')->group(function () {
     Route::view('about', 'about')->name('about');
+    Route::view('welcome','welcome')->name('welcome');
+    Route::view('pesanan.masuk','pesanan.masuk.index')->name('pesanan.masuk.index');
+    Route::view('pesanan.riwayat','pesanan.riwayat.index')->name('pesanan.riwayat.index');
+    Route::resource('katalog', KatalogController::class);
+    Route::resource('pengiriman', PengirimanController::class);
+    Route::resource('kas', KasController::class);
 
     Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
 

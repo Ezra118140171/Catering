@@ -2,33 +2,76 @@
      class="fixed z-20 inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
 
 <div :class="sidebarOpen ? 'translate-x-0 ease-out' : '-translate-x-full ease-in'"
-     class="fixed z-30 inset-y-0 left-0 w-64 transition duration-300 transform bg-gray-900 overflow-y-auto lg:translate-x-0 lg:static lg:inset-0">
+     class="fixed z-30 inset-y-0 left-0 w-64 transition duration-300 transform bg-emerald-600 overflow-y-auto lg:translate-x-0 lg:static lg:inset-0">
     <div class="flex items-center justify-center mt-8">
         <div class="flex items-center">
-            <svg class="h-12 w-12" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M364.61 390.213C304.625 450.196 207.37 450.196 147.386 390.213C117.394 360.22 102.398 320.911 102.398 281.6C102.398 242.291 117.394 202.981 147.386 172.989C147.386 230.4 153.6 281.6 230.4 307.2C230.4 256 256 102.4 294.4 76.7999C320 128 334.618 142.997 364.608 172.989C394.601 202.981 409.597 242.291 409.597 281.6C409.597 320.911 394.601 360.22 364.61 390.213Z"
-                    fill="#4C51BF" stroke="#4C51BF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path
-                    d="M201.694 387.105C231.686 417.098 280.312 417.098 310.305 387.105C325.301 372.109 332.8 352.456 332.8 332.8C332.8 313.144 325.301 293.491 310.305 278.495C295.309 263.498 288 256 275.2 230.4C256 243.2 243.201 320 243.201 345.6C201.694 345.6 179.2 332.8 179.2 332.8C179.2 352.456 186.698 372.109 201.694 387.105Z"
-                    fill="white"/>
-            </svg>
-
-            <span class="text-white text-2xl mx-2 font-semibold">{{ __('Dashboard') }}</span>
+            <a href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                <span class="text-white text-3xl mx-2 font-semibold">{{ __('Logo') }}</span>
+            </a>
         </div>
     </div>
 
     <nav class="mt-10" x-data="{ isMultiLevelMenuOpen: false }">
-        <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+        {{-- Pesanan --}}
+        <x-nav-link href="#" @click="isMultiLevelMenuOpen = !isMultiLevelMenuOpen">
             <x-slot name="icon">
-                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/>
+                <svg class="h-6 w-6" fill="white" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 1.807L0 5.629l6 3.822 6.001-3.822L6 1.807zM18 1.807l-6 3.822 6 3.822 6-3.822-6-3.822zM0 13.274l6 3.822 6.001-3.822L6 9.452l-6 3.822zM18 9.452l-6 3.822 6 3.822 6-3.822-6-3.822zM6 18.371l6.001 3.822 6-3.822-6-3.822L6 18.371z"/>
                 </svg>
             </x-slot>
-            {{ __('Dashboard') }}
+            Pesanan
         </x-nav-link>
+        <template x-if="isMultiLevelMenuOpen">
+            <ul x-transition:enter="transition-all ease-in-out duration-300"
+                x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
+                x-transition:leave="transition-all ease-in-out duration-300"
+                x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
+                class="p-2 mx-4 mt-2 space-y-2 overflow-hidden text-sm font-medium text-white bg-gray-700 bg-opacity-50 rounded-md shadow-inner"
+                aria-label="submenu">
+                <li class="px-2 py-1 transition-colors duration-150">
+                    <a class="w-full" href="{{ route('pesanan.masuk.index') }}" :active="request()->routeIs('pesanan.masuk.index')">Pesanan Masuk</a>
+                </li>
+                <li class="px-2 py-1 transition-colors duration-150">
+                    <a class="w-full" href="{{ route('pesanan.riwayat.index') }}" :active="request()->routeIs('pesanan.riwayat.index')">Riwayat Pesanan</a>
+                </li>
+            </ul>
+        </template>
+        {{-- akhir pesanan --}}
 
+        {{-- pengiriman --}}
+        <x-nav-link href="{{ route('pengiriman.index') }}" :active="request()->routeIs('pengiriman.index')">
+            <x-slot name="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+                </svg>
+            </x-slot>
+            {{ __('Pengiriman') }}
+        </x-nav-link>
+        {{-- akhir pengiriman --}}
+
+        {{-- katalog --}}
+        <x-nav-link href="{{ route('katalog.index') }}" :active="request()->routeIs('katalog.index')">
+            <x-slot name="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
+                </svg>
+            </x-slot>
+            {{ __('Katalog') }}
+        </x-nav-link>
+        {{-- akhir katalog --}}
+
+        {{-- kas --}}
+        <x-nav-link href="{{ route('kas.index') }}" :active="request()->routeIs('kas.index')">
+            <x-slot name="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </x-slot>
+            {{ __('Kas') }}
+        </x-nav-link>
+        {{-- akhir kas --}}
+
+        {{-- user --}}
         <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
             <x-slot name="icon">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -37,17 +80,18 @@
             </x-slot>
             {{ __('Users') }}
         </x-nav-link>
+        {{-- akhir user --}}
 
-        <x-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')">
+        {{-- <x-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')">
             <x-slot name="icon">
                 <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                     <path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
                 </svg>
             </x-slot>
             {{ __('About us') }}
-        </x-nav-link>
+        </x-nav-link> --}}
 
-        <x-nav-link href="#" @click="isMultiLevelMenuOpen = !isMultiLevelMenuOpen">
+        {{-- <x-nav-link href="#" @click="isMultiLevelMenuOpen = !isMultiLevelMenuOpen">
             <x-slot name="icon">
                 <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"></path>
@@ -66,6 +110,6 @@
                     <a class="w-full" href="#">Child menu</a>
                 </li>
             </ul>
-        </template>
+        </template> --}}
     </nav>
 </div>
