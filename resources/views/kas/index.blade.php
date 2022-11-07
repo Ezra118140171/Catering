@@ -4,6 +4,14 @@
     </x-slot>
 
     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+        <div class="mt-4 mx-4 flex justify-end">
+            <a href="{{ route('kas.create') }}" class="inline-flex items-center py-2 px-3 text-md font-medium text-center text-white bg-emerald-500 rounded-lg hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-blue-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+                Tambah Kas Keluar
+            </a>
+        </div>
         <div class="p-6 border-b border-gray-200">
             <table class="w-full whitespace-nowrap">
                 <thead>

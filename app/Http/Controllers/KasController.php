@@ -25,7 +25,7 @@ class KasController extends Controller
      */
     public function create()
     {
-        return view('kas.index');
+        return view('kas.create');
     }
 
     /**
