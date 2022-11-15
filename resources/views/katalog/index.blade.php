@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-            {{ __('Katalog') }}
+            {{ __('Katalog Menu') }}
     </x-slot>
 
     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -9,7 +9,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>
-                Tambah
+                Tambah Menu Baru
             </a>
         </div>
         <div class="p-6 border-b-2 border-red-600">

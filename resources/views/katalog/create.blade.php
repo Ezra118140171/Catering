@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-            {{ __('Masukan Makanan') }}
+            {{ __('Menu Baru') }}
     </x-slot>
 
     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
