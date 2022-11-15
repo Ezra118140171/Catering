@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-            {{ __('Form Kas Keluar') }}
+            {{ __('Mengubah Makanan') }}
     </x-slot>
 
     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -10,7 +10,7 @@
                     @csrf
                     <div class="grid grid-cols-1 sm:grid-cols-1 gap-6 mt-4">
                         <div>
-                            <x-input-label for="name" :value="__('Foto')"/>
+                            <x-input-label for="name" :value="__('Nama Makanan')"/>
                             <div class="flex justify-center items-center w-full">
                                 <label for="dropzone-file" class="flex flex-col justify-center items-center w-full h-64 bg-gray-50 rounded-lg border-2 border-gray-600 border-dashed cursor-pointer  hover:bg-gray-100 dark:border-gray-500 dark:hover:border-gray-300 dark:hover:bg-gray-400">
                                     <div class="flex flex-col justify-center items-center pt-5 pb-6">
@@ -25,27 +25,31 @@
                         </div>
 
                         <div>
-                            <x-input-label for="judul" :value="__('Judul Transaksi')"/>
+                            <x-input-label for="hudul" :value="__('Judul')"/>
                             <x-text-input type="judul"
                                      name="judul"
                                      id="judul"
-                                     value=""
+                                     value="Pindang"
                                      required
                             />
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
 
                         <div>
-                            <x-input-label for="harga" :value="__('Tanggal')"/>
-                            <div inline-datepicker data-date="02/25/2022"></div>
+                            <x-input-label for="harga" :value="__('Harga')"/>
+                            <x-text-input type="text"
+                                     name="harga"
+                                     id="harga"
+                                     value="Rp. 10.000"
+                            />
                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
                         </div>
 
                         <div>
-                            <x-input-label for="Uang" :value="__('Uang Keluar')"/>
+                            <x-input-label for="keterangan" :value="__('Keterangan')"/>
                             <x-text-input type="text"
-                                     name="Uang"
-                                     id="Uang"
+                                     name="keterangan"
+                                     id="keterangan"
                             />
                             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                         </div>

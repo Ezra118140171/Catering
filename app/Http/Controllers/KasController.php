@@ -58,7 +58,7 @@ class KasController extends Controller
      */
     public function edit(Kas $kas)
     {
-        //
+        return view('kas.edit');
     }
 
     /**

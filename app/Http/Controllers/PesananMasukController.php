@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Katalog;
-use App\Http\Requests\StoreKatalogRequest;
-use App\Http\Requests\UpdateKatalogRequest;
+use App\Models\PesananMasuk;
+use App\Http\Requests\StorePesananMasukRequest;
+use App\Http\Requests\UpdatePesananMasukRequest;
 
-class KatalogController extends Controller
+class PesananMasukController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class KatalogController extends Controller
      */
     public function index()
     {
-        return view('katalog.index');
+        return view('pesanan.masuk.index');
     }
 
     /**
@@ -25,16 +25,16 @@ class KatalogController extends Controller
      */
     public function create()
     {
-        return view("katalog.create");
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreKatalogRequest  $request
+     * @param  \App\Http\Requests\StorePesananMasukRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreKatalogRequest $request)
+    public function store(StorePesananMasukRequest $request)
     {
         //
     }
@@ -42,33 +42,33 @@ class KatalogController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Katalog  $katalog
+     * @param  \App\Models\PesananMasuk  $pesananMasuk
      * @return \Illuminate\Http\Response
      */
-    public function show(Katalog $katalog)
+    public function show(PesananMasuk $pesananMasuk)
     {
-        //
+        return view('pesanan.masuk.show');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Katalog  $katalog
+     * @param  \App\Models\PesananMasuk  $pesananMasuk
      * @return \Illuminate\Http\Response
      */
-    public function edit(Katalog $katalog)
+    public function edit(PesananMasuk $pesananMasuk)
     {
-        return view('katalog.edit');
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateKatalogRequest  $request
-     * @param  \App\Models\Katalog  $katalog
+     * @param  \App\Http\Requests\UpdatePesananMasukRequest  $request
+     * @param  \App\Models\PesananMasuk  $pesananMasuk
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateKatalogRequest $request, Katalog $katalog)
+    public function update(UpdatePesananMasukRequest $request, PesananMasuk $pesananMasuk)
     {
         //
     }
@@ -76,10 +76,10 @@ class KatalogController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Katalog  $katalog
+     * @param  \App\Models\PesananMasuk  $pesananMasuk
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Katalog $katalog)
+    public function destroy(PesananMasuk $pesananMasuk)
     {
         //
     }

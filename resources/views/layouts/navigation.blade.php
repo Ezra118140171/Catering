@@ -13,7 +13,7 @@
 
     <nav class="mt-10" x-data="{ isMultiLevelMenuOpen: false }">
         {{-- Pesanan --}}
-        <x-nav-link href="#" @click="isMultiLevelMenuOpen = !isMultiLevelMenuOpen">
+        <x-nav-link href="#" :active="request()->routeIs('pesanan.*')" @click="isMultiLevelMenuOpen = !isMultiLevelMenuOpen">
             <x-slot name="icon">
                 <svg class="h-6 w-6" fill="white" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6 1.807L0 5.629l6 3.822 6.001-3.822L6 1.807zM18 1.807l-6 3.822 6 3.822 6-3.822-6-3.822zM0 13.274l6 3.822 6.001-3.822L6 9.452l-6 3.822zM18 9.452l-6 3.822 6 3.822 6-3.822-6-3.822zM6 18.371l6.001 3.822 6-3.822-6-3.822L6 18.371z"/>
@@ -29,10 +29,10 @@
                 class="p-2 mx-4 mt-2 space-y-2 overflow-hidden text-sm font-medium text-white bg-gray-700 bg-opacity-50 rounded-md shadow-inner"
                 aria-label="submenu">
                 <li class="px-2 py-1 transition-colors duration-150">
-                    <a class="w-full" href="{{ route('pesanan.masuk.index') }}" :active="request()->routeIs('pesanan.masuk.index')">Pesanan Masuk</a>
+                    <a class="w-full" href="{{ route('pesanan.pesananMasuk.index') }}">Pesanan Masuk</a>
                 </li>
                 <li class="px-2 py-1 transition-colors duration-150">
-                    <a class="w-full" href="{{ route('pesanan.riwayat.index') }}" :active="request()->routeIs('pesanan.riwayat.index')">Riwayat Pesanan</a>
+                    <a class="w-full" href="{{ route('pesanan.pesananRiwayat.index') }}">Riwayat Pesanan</a>
                 </li>
             </ul>
         </template>

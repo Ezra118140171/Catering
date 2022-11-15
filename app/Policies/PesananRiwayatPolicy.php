@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\PengirimanController;
+use App\Models\PesananRiwayat;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class PengirimanControllerPolicy
+class PesananRiwayatPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class PengirimanControllerPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\PengirimanController  $pengirimanController
+     * @param  \App\Models\PesananRiwayat  $pesananRiwayat
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, PengirimanController $pengirimanController)
+    public function view(User $user, PesananRiwayat $pesananRiwayat)
     {
         //
     }
@@ -48,10 +48,10 @@ class PengirimanControllerPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\PengirimanController  $pengirimanController
+     * @param  \App\Models\PesananRiwayat  $pesananRiwayat
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, PengirimanController $pengirimanController)
+    public function update(User $user, PesananRiwayat $pesananRiwayat)
     {
         //
     }
@@ -60,10 +60,10 @@ class PengirimanControllerPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\PengirimanController  $pengirimanController
+     * @param  \App\Models\PesananRiwayat  $pesananRiwayat
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, PengirimanController $pengirimanController)
+    public function delete(User $user, PesananRiwayat $pesananRiwayat)
     {
         //
     }
@@ -72,10 +72,10 @@ class PengirimanControllerPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\PengirimanController  $pengirimanController
+     * @param  \App\Models\PesananRiwayat  $pesananRiwayat
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, PengirimanController $pengirimanController)
+    public function restore(User $user, PesananRiwayat $pesananRiwayat)
     {
         //
     }
@@ -84,10 +84,10 @@ class PengirimanControllerPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\PengirimanController  $pengirimanController
+     * @param  \App\Models\PesananRiwayat  $pesananRiwayat
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, PengirimanController $pengirimanController)
+    public function forceDelete(User $user, PesananRiwayat $pesananRiwayat)
     {
         //
     }

@@ -6,6 +6,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\KatalogController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PengirimanController;
+use App\Http\Controllers\PesananMasukController;
+use App\Http\Controllers\PesananRiwayatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,11 +33,25 @@ require __DIR__.'/auth.php';
 Route::middleware('auth')->group(function () {
     Route::view('about', 'about')->name('about');
     Route::view('welcome','welcome')->name('welcome');
-    Route::view('pesanan.masuk','pesanan.masuk.index')->name('pesanan.masuk.index');
-    Route::view('pesanan.riwayat','pesanan.riwayat.index')->name('pesanan.riwayat.index');
+    // Route::view('pesanan.masuk','pesanan.masuk.index')->name('pesanan.masuk.index');
+    // Route::view('pesanan.riwayat','pesanan.riwayat.index')->name('pesanan.riwayat.index');
+    // Route::view('pesanan.masuk.show','pesanan.masuk.show')->name('pesanan.masuk.show');
+    // Route::view('pesanan.riwayat.show','pesanan.riwayat.show')->name('pesanan.riwayat.show');
     Route::resource('katalog', KatalogController::class);
     Route::resource('pengiriman', PengirimanController::class);
     Route::resource('kas', KasController::class);
+    Route::prefix('pesanan')->as('pesanan.')->group(function(){
+        Route::resource('pesananMasuk', PesananMasukController::class);
+        Route::resource('pesananRiwayat', PesananRiwayatController::class);
+    });
+
+    Route::view('pesanan.masuk.show','pesanan.masuk.show')->name('pesanan.masuk.show');
+    Route::view('pesanan.riwayat.show','pesanan.riwayat.show')->name('pesanan.riwayat.show');
+
+    Route::view('katalog.edit','katalog.edit')->name('katalog.edit');
+
+    Route::view('kas.edit','kas.edit')->name('kas.edit');
+    Route::view('kas.show','kas.show')->name('kas.show');
 
     Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
 
