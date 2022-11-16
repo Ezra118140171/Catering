@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 use App\Models\Kas;
-use App\Http\Requests\StoreKasRequest;
-use App\Http\Requests\UpdateKasRequest;
+use Validator;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Resources\Kas as KasResource;
+
 
 class KasController extends Controller
 {
@@ -15,7 +19,8 @@ class KasController extends Controller
      */
     public function index()
     {
-        return view('kas.index');
+        $kas = Kas::all();
+        return view('kas.index', compact('kas'));
     }
 
     /**
@@ -25,27 +30,37 @@ class KasController extends Controller
      */
     public function create()
     {
-        return view('kas.create');
+        $kas = Kas::all();
+        return view('kas.create', compact('kas'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreKasRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreKasRequest $request)
+    public function store(Request $request)
     {
-        //
+        $input = $request->all();
+   
+        $kas = new Kas();
+        $kas->nama_transaksi = $request->nama_transaksi;
+        $kas->tgl_transaksi = $request->tgl_transaksi;
+        $kas->uang_masuk = $request->uang_masuk;
+        $kas->uang_keluar = $request->uang_keluar;
+        $kas->save();
+
+        return redirect(route('kas.index'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Kas  $kas
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Kas $kas)
+    public function show($id)
     {
         //
     }
@@ -53,34 +68,47 @@ class KasController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Kas  $kas
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Kas $kas)
+    public function edit(Request $request, $id)
     {
-        return view('kas.edit');
+        $kas = Kas::findorfail($id);
+        return view('Halaman/BukuKas/edit', compact('kas'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateKasRequest  $request
-     * @param  \App\Models\Kas  $kas
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateKasRequest $request, Kas $kas)
+    public function update(Kas $kas, Request $request)
     {
-        //
+        $input = $request->all();
+   
+        $kas->nama_transaksi = $request->nama_transaksi;
+        $kas->tgl_transaksi = $request->tgl_transaksi;
+        $kas->uang_masuk = $request->uang_masuk;
+        $kas->uang_keluar = $request->uang_keluar;
+        $kas->save();
+
+        return redirect(route('kas'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Kas  $kas
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kas $kas)
+    public function destroy($id)
     {
-        //
+        $kas = Kas::find($id);
+
+        $kas->delete();
+   
+        return redirect(route('kas'));
     }
 }

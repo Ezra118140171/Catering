@@ -6,8 +6,8 @@
     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 border-b border-gray-200">
             <div class="p-6">
-                <form action="" method="POST">
-                    @csrf
+                <form action="{{route('katalog.post')}}" method="post" enctype="multipart/form-data">
+                    {{ csrf_field() }}
                     <div class="grid grid-cols-1 sm:grid-cols-1 gap-6 mt-4">
                         <div>
                             <x-input-label for="name" :value="__('Foto')"/>
@@ -18,7 +18,7 @@
                                         <p class="mb-2 text-sm text-gray-800"><span class="font-semibold">Tekan untuk mengirim gambar</span> atau tempatkan gambar disini dengan format</p>
                                         <p class="text-xs text-gray-800">SVG, PNG, JPG atau GIF (MAX. 800x400px)</p>
                                     </div>
-                                    <input id="dropzone-file" type="file" class="hidden" />
+                                    <input id="dropzone-file" name="foto" type="file" class="hidden" />
                                 </label>
                             </div>
                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
@@ -27,8 +27,8 @@
                         <div>
                             <x-input-label for="hudul" :value="__('Nama Makanan')"/>
                             <x-text-input type="judul"
-                                     name="judul"
-                                     id="judul"
+                                     name="nama_makanan"
+                                     id="nama_makanan"
                                      value=""
                                      required
                             />

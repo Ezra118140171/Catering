@@ -48,7 +48,11 @@ Route::middleware('auth')->group(function () {
     Route::view('pesanan.masuk.show','pesanan.masuk.show')->name('pesanan.masuk.show');
     Route::view('pesanan.riwayat.show','pesanan.riwayat.show')->name('pesanan.riwayat.show');
 
-    Route::view('katalog.edit','katalog.edit')->name('katalog.edit');
+    Route::post('/postkatalog','\App\Http\Controllers\KatalogController@store')->name('katalog.post');
+    Route::delete('/katalog/{katalog}','\App\Http\Controllers\KatalogController@destroy')->name('katalog.destroy');
+    Route::get('/katalog/{katalog}/edit','\App\Http\Controllers\KatalogController@edit')->name('katalog.edit');
+    Route::put('/katalog/{katalog}','\App\Http\Controllers\KatalogController@update')->name('katalog.update');
+    
 
     Route::view('kas.edit','kas.edit')->name('kas.edit');
     Route::view('kas.show','kas.show')->name('kas.show');

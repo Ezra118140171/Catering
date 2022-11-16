@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Request;
 use App\Models\Katalog;
-use App\Http\Requests\StoreKatalogRequest;
-use App\Http\Requests\UpdateKatalogRequest;
+use Validator;
+use App\Http\Resources\Katalog as KatalogResource;
+
 
 class KatalogController extends Controller
 {
@@ -13,9 +16,10 @@ class KatalogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('katalog.index');
+        $katalog = Katalog::all();
+        return view('katalog.index', compact('katalog'));
     }
 
     /**
@@ -25,27 +29,42 @@ class KatalogController extends Controller
      */
     public function create()
     {
-        return view("katalog.create");
+        $katalog = Katalog::all();
+        return view('katalog.create', compact('katalog'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreKatalogRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreKatalogRequest $request)
+    public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        $nm = $request->foto;
+        $namaFile = $nm->getClientOriginalName();
+   
+        $katalog = new Katalog();
+        $katalog->nama_makanan = $request->nama_makanan;
+        $katalog->harga = $request->harga;
+        $katalog->keterangan = $request->keterangan;
+        $katalog->foto = $namaFile;
+        $nm->move(public_path().'/img',$namaFile);
+        $katalog->save();
+
+       
+        return redirect(route('katalog.index'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Katalog  $katalog
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Katalog $katalog)
+    public function show($id)
     {
         //
     }
@@ -53,34 +72,53 @@ class KatalogController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Katalog  $katalog
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Katalog $katalog)
+    public function edit(Request $request, $id)
     {
-        return view('katalog.edit');
+        $katalog = Katalog::findorfail($id);
+        return view('katalog.edit', compact('katalog'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateKatalogRequest  $request
-     * @param  \App\Models\Katalog  $katalog
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateKatalogRequest $request, Katalog $katalog)
+    public function update(Katalog $katalog, Request $request)
     {
-        //
+        $input = $request->all();
+        
+        $nm = $request->foto;
+        $namaFile = $nm->getClientOriginalName();
+   
+        
+        $katalog->nama_makanan = $request->nama_makanan;
+        $katalog->harga = $request->harga;
+        $katalog->keterangan = $request->keterangan;
+        $katalog->foto = $namaFile;
+        $nm->move(public_path().'/img',$namaFile);
+        $katalog->save();
+
+       
+        return redirect(route('katalog.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Katalog  $katalog
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Katalog $katalog)
+    public function destroy($id)
     {
-        //
+        $katalog = Katalog::find($id);
+
+        $katalog->delete();
+   
+        return redirect(route('katalog.index'));
     }
 }

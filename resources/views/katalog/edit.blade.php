@@ -6,8 +6,9 @@
     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 border-b border-gray-200">
             <div class="p-6">
-                <form action="" method="POST">
+                <form action="{{ route('katalog.update', $katalog->id_katalog ) }}" method="post" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="grid grid-cols-1 sm:grid-cols-1 gap-6 mt-4">
                         <div>
                             <x-input-label for="name" :value="__('Nama Makanan')"/>
@@ -18,7 +19,7 @@
                                         <p class="mb-2 text-sm text-gray-800"><span class="font-semibold">Tekan untuk mengirim gambar</span> atau tempatkan gambar disini dengan format</p>
                                         <p class="text-xs text-gray-800">SVG, PNG, JPG atau GIF (MAX. 800x400px)</p>
                                     </div>
-                                    <input id="dropzone-file" type="file" class="hidden" />
+                                    <input id="dropzone-file" name="foto" value="{{ $katalog->foto }}" type="file" class="hidden" />
                                 </label>
                             </div>
                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
@@ -27,9 +28,9 @@
                         <div>
                             <x-input-label for="hudul" :value="__('Judul')"/>
                             <x-text-input type="judul"
-                                     name="judul"
+                                     name="nama_makanan"
                                      id="judul"
-                                     value="Pindang"
+                                     value="{{ $katalog->nama_makanan }}"
                                      required
                             />
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
@@ -40,7 +41,7 @@
                             <x-text-input type="text"
                                      name="harga"
                                      id="harga"
-                                     value="Rp. 10.000"
+                                     value="{{ $katalog->harga }}"
                             />
                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
                         </div>
@@ -50,6 +51,7 @@
                             <x-text-input type="text"
                                      name="keterangan"
                                      id="keterangan"
+                                     value="{{ $katalog->keterangan }}"
                             />
                             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                         </div>
@@ -57,7 +59,7 @@
 
                     <div class="flex justify-end mt-4">
                         <x-primary-button>
-                            {{ __('Tambah') }}
+                            {{ __('Simpan') }}
                         </x-primary-button>
                     </div>
                 </form>

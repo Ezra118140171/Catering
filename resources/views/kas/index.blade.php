@@ -16,21 +16,23 @@
             <table class="w-full whitespace-nowrap">
                 <thead>
                     <tr class="text-center font-bold">
+                        <td class="border px-6 py-4">ID</td>
                         <td class="border px-6 py-4">Nama Transaksi</td>
                         <td class="border px-6 py-4">Tanggal</td>
-                        <td class="border px-3 py-4">Masuk</td>
-                        <td class="border px-6 py-4">Keluar</td>
+                        <td class="border px-3 py-4">Uang Masuk</td>
+                        <td class="border px-6 py-4">Uang Keluar</td>
                         <td class="border px-6 py-4">Aksi</td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="border px-6 py-4">contoh</td>
-                        <td class="border px-6 py-4">makanan</td>
-                        <td class="border px-3 py-4">Rp. 1.900.000</td>
-                        <td class="border px-6 py-4 flex justify-center">
-                            -
-                        </td>
+                    @foreach($kas as $item)
+                        <td class="border px-6 py-4 flex justify-center">{{ $item->id_kas }}</td>
+                        <td class="border px-6 py-4">{{ $item->nama_transaksi }}</td>
+                        <td class="border px-6 py-4">{{ $item->tgl_transaksi }}</td>
+                        <td class="border px-3 py-4">{{ $item->uang_masuk }}</td>
+                        <td class="border px-3 py-4">{{ $item->uang_keluar }}</td>
+                        
                         <td class="border px-6 py-2">
                             <div class="flex justify-center gap-3">
                                 <a href="{{ route('kas.edit') }}"
@@ -49,6 +51,7 @@
                             </div>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
