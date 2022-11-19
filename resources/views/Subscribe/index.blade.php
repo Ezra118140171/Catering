@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Restu Catering</title>
+        <title>Laravel</title>
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -34,7 +34,7 @@
                             @if (Route::has('login'))
                                 @auth
                                 <li>
-                                    <a href="#location" class="py-2 mx-6 text-lg font-bold text-white">Home</a>
+                                    <a href="{{route('welcome')}}" class="py-2 mx-6 text-lg font-bold text-white">Home</a>
                                 </li>
                                 <li>
                                     <a href="{{route('menu.index')}}" class="py-2 mx-6 text-lg font-bold text-white">Menu</a>
@@ -43,7 +43,7 @@
                                     <a href="{{ route('langganan.index') }}" class="py-2 mx-6 text-lg font-bold text-white">Langganan</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('pesanpelanggan.index')}}" class="py-2 mx-6 text-lg font-bold text-white">Pesanan</a>
+                                    <a href="{{route('pesanlanggan.index')}}" class="py-2 mx-6 text-lg font-bold text-white">Pesanan</a>
                                 </li>
                                 <li>
                                     <a href="{{ url('/dashboard') }}" class=" py-2 mx-6 text-lg font-bold text-white dark:text-white">Dashboard</a>
@@ -65,19 +65,72 @@
             </div>
         </header>
         {{-- foto --}}
-        <div class="py-20 max-w-screen-lg mx-auto relative">
-            <div class="p-24 h-80 flex items-center bg-slate-600 rounded-lg">
-                <div>
-                    <h2 class="font-bold text-2xl">Foto</h2>
-                    <p class="text-base">nanti ganti foto</p>
-                </div>
+        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="mt-4 mx-4 flex justify-end" style="visibility: hidden;">
+                <a href="" class="inline-flex items-center py-2 px-3 text-md font-medium text-center text-white bg-emerald-500 rounded-lg hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                    Tambah Menu Baru
+                </a>
             </div>
-        </div>
-        {{-- akhir foto --}}
-        {{-- alur pesanan --}}
-        <div>
-            <p>masih kosong</p>
-        </div>
-        {{-- akhir alur --}}
+                {{-- akhir kartu --}}
+                <div class="w-[80%] mx-auto" style="width: 85%;">
+                    <p class="text-4xl mt-6">Total Harga</p>   
+                    
+                    <div class="mt-4 mb-4" style="width: 90%;">
+                        <div class="">
+                      <p class="text-3xl text-right">Sejumlah &nbsp;&nbsp;&nbsp;<span class="" style="margin-right:60px;">:</span>Rp. 180.000</p></div>
+                      </div>
+                
+                      <hr class="my-8 h-px mx-auto bg-gray-200 border-0 dark:bg-gray-700" style="width:100% ;">
+                      <p class="text-4xl mt-6 mb-4">Metode Pembayaran</p>
+                      <div class="flex">
+                        <div class="mx-auto">
+                      <table lass="border-b-2 border-black" style="width: 1300px;">
+                        <tr style="height: 70px;">
+                            <td class="font-medium text-center" style="font-size:28px; width: 20%">BCA</td>
+                            <td class="font-medium text-center" style="font-size:28px; width: 33%">1234567890</td>
+                            <td class="font-medium text-center" style="font-size:28px; width: 33%">A/N Restu</td>
+                        </tr>
+                        <tr class="border-b-2 border-black" style="height: 70px;">
+                            <td class="font-medium text-center" style="font-size:28px; width: 20%">Dana</td>
+                            <td class="font-medium text-center" style="font-size:28px; width: 33%">082164945342</td>
+                            <td class="font-medium text-center" style="font-size:28px; width: 33%">A/N Restu</td>
+                        </tr>
+                    </table>
+                    <p class="text-4xl mt-6 mb-4">Unggah Bukti Pembayaran</p>
+                    <!-- File Input -->
+                    <div class="flex pb-8">
+                <div class=" items-center justify-center " style="width: 672px;">
+                    <label for="dropzone-file" class="flex flex-col items-center justify-center w-full border-2 border-gray-300 border-solid rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                        <div class="flex flex-col items-center justify-center " style="height: 50px;">
+                        </div>
+                        <input id="dropzone-file" type="file" class="hidden" />
+                    </label>
+                </div> 
+                <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-2 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" style="margin-left:30px" onclick="$('#dropzone-file').click()" data-modal-toggle="defaultModal">Upload</button>
+                </div>
+                
+                <div class="pb-5" style="padding-bottom: 70px;"> 
+                    <div class="relative" style="width: 100%;">
+                        <button type="button" id="payment" class="focus:outline-none absolute right-0 text-white bg-green-700 hover:bg-green-800 focus:ring-4  focus:ring-green-300 font-medium rounded-lg text-2xl px-3 py-1  mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" style="width:192px">Pesan</button>
+                    </div>
+                </div>
+                </div>
+                </div>
+                
+                <div id="defaultModal" tabindex="-1" data-modal-placement="top-center" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 w-full md:inset-0 h-modal md:h-full">
+                  <div class="bg-white" style="width: 400px; border-radius: 20px;">      
+                        <div class="bg-green-700" style="height: 40px; width: 400px; border-radius: 20px 20px 0 0;"><i class="fa-regular fa-bell content-center text-5xl bg-yellow-200" style="border-radius: 50%; margin-left: 45%;"></i></div>
+                    <p class="text-center font-bold text-2xl">Pesanan Telah Ditambahkan</p>
+                  </div>
+                </div>
+                
+                    <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
+                    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+                    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                    <script src="js/index.js"></script>
+            </div>
     </body>
 </html>

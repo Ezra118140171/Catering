@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Restu Catering</title>
+        <title>Laravel</title>
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -34,7 +34,7 @@
                             @if (Route::has('login'))
                                 @auth
                                 <li>
-                                    <a href="#location" class="py-2 mx-6 text-lg font-bold text-white">Home</a>
+                                    <a href="{{route('home.index')}}" class="py-2 mx-6 text-lg font-bold text-white">Home</a>
                                 </li>
                                 <li>
                                     <a href="{{route('menu.index')}}" class="py-2 mx-6 text-lg font-bold text-white">Menu</a>
@@ -65,19 +65,6 @@
             </div>
         </header>
         {{-- foto --}}
-        <div class="py-20 max-w-screen-lg mx-auto relative">
-            <div class="p-24 h-80 flex items-center bg-slate-600 rounded-lg">
-                <div>
-                    <h2 class="font-bold text-2xl">Foto</h2>
-                    <p class="text-base">nanti ganti foto</p>
-                </div>
-            </div>
-        </div>
-        {{-- akhir foto --}}
-        {{-- alur pesanan --}}
-        <div>
-            <p>masih kosong</p>
-        </div>
-        {{-- akhir alur --}}
+        
     </body>
 </html>

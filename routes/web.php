@@ -57,6 +57,20 @@ Route::middleware('auth')->group(function () {
     Route::view('kas.edit','kas.edit')->name('kas.edit');
     Route::view('kas.show','kas.show')->name('kas.show');
 
+    Route::view('menu.index','menu.index')->name('menu.index');
+
+    Route::view('home.index','home.index')->name('home.index');
+    
+    Route::view('langganan.index','langganan.index')->name('langganan.index');
+
+    Route::view('pesanpelanggan.detil.index','pesanpelanggan.detil.index')->name('pesanpelanggan.detil.index');
+
+    Route::view('pesanpelanggan.index','pesanpelanggan.index')->name('pesanpelanggan.index');
+
+    Route::view('payment.index','payment.index')->name('payment.index');
+
+    Route::view('subscribe.index','subscribe.index')->name('subscribe.index');
+
     Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
 
     Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');

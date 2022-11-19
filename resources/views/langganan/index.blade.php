@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Restu Catering</title>
+        <title>Laravel</title>
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -34,13 +34,13 @@
                             @if (Route::has('login'))
                                 @auth
                                 <li>
-                                    <a href="#location" class="py-2 mx-6 text-lg font-bold text-white">Home</a>
+                                    <a href="{{route('home.index')}}" class="py-2 mx-6 text-lg font-bold text-white">Home</a>
                                 </li>
                                 <li>
                                     <a href="{{route('menu.index')}}" class="py-2 mx-6 text-lg font-bold text-white">Menu</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('langganan.index') }}" class="py-2 mx-6 text-lg font-bold text-white">Langganan</a>
+                                    <a href="{{route('langganan.index') }}" class="py-2 mx-6 text-lg font-bold text-white">Langganan</a>
                                 </li>
                                 <li>
                                     <a href="{{route('pesanpelanggan.index')}}" class="py-2 mx-6 text-lg font-bold text-white">Pesanan</a>
@@ -65,19 +65,48 @@
             </div>
         </header>
         {{-- foto --}}
-        <div class="py-20 max-w-screen-lg mx-auto relative">
-            <div class="p-24 h-80 flex items-center bg-slate-600 rounded-lg">
-                <div>
-                    <h2 class="font-bold text-2xl">Foto</h2>
-                    <p class="text-base">nanti ganti foto</p>
+        
+        <div class="mt-10" style="margin-left: 100px;">
+            <p class="font-semibold text-4xl">Menu berlangganan</p>
+          </div>
+        <div class="flex mt-10">
+          <div class="grid grid-cols-3 mx-auto" style="gap: 100px;">
+            <div class=" bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-200 dark:border-gray-200" style="width:333px;height: 460px;" >
+                <a href="#">
+                  <img class="rounded-t-lg" src="{{ asset('images/food.png') }}" alt="" style="width:333px" />
+                </a>
+                <div class="p-3 mt-4 ml-4">
+                  <p class="text-2xl font-medium">Langganan 3 Hari</p>
+                  <div class="relative">
+                    <a href="{{ route('pesanpelanggan.detil.index') }}"><button type="button" class="focus:outline-none absolute right-0  text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-regular rounded-full text-xl p-1 px-5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" style="margin-top: 76px;">Pilih Paket</button></a>
+                  </div>
                 </div>
-            </div>
-        </div>
-        {{-- akhir foto --}}
-        {{-- alur pesanan --}}
-        <div>
-            <p>masih kosong</p>
-        </div>
-        {{-- akhir alur --}}
+              </div>
+              <div class=" bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-200 dark:border-gray-200" style="width:333px;height: 460px;" >
+                <a href="#">
+                  <img class="rounded-t-lg" src="{{ asset('images/food.png') }}" alt="" style="width:333px" />
+                </a>
+                <div class="p-3 mt-4 ml-4">
+                  <p class="text-2xl font-medium">Langganan 3 Hari</p>
+                  <div class="relative">
+                      <a href="{{ route('pesanpelanggan.detil.index') }}"><button type="button" class="focus:outline-none absolute right-0  text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-regular rounded-full text-xl p-1 px-5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" style="margin-top: 76px;">Pilih Paket</button></a>
+                  </div>
+                </div>
+              </div>
+              <div class=" bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-200 dark:border-gray-200" style="width:333px;height: 460px;" >
+                <a href="#">
+                  <img class="rounded-t-lg" src="{{ asset('images/food.png') }}" alt="" style="width:333px" />
+                </a>
+                <div class="p-3 mt-4 ml-4">
+                  <p class="text-2xl font-medium">Langganan 3 Hari</p>
+                  <div class="relative">
+                    <a href="{{ route('pesanpelanggan.detil.index') }}"><button type="button" class="focus:outline-none absolute right-0  text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-regular rounded-full text-xl p-1 px-5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" style="margin-top: 76px;">Pilih Paket</button></a>
+                  </div>
+                </div>
+              </div>
+          </div>
+          </div>
+        
+        <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
     </body>
 </html>

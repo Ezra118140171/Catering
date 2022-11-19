@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Restu Catering</title>
+        <title>Laravel</title>
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -34,7 +34,7 @@
                             @if (Route::has('login'))
                                 @auth
                                 <li>
-                                    <a href="#location" class="py-2 mx-6 text-lg font-bold text-white">Home</a>
+                                    <a href="{{route('home.index')}}" class="py-2 mx-6 text-lg font-bold text-white">Home</a>
                                 </li>
                                 <li>
                                     <a href="{{route('menu.index')}}" class="py-2 mx-6 text-lg font-bold text-white">Menu</a>
@@ -65,19 +65,35 @@
             </div>
         </header>
         {{-- foto --}}
-        <div class="py-20 max-w-screen-lg mx-auto relative">
-            <div class="p-24 h-80 flex items-center bg-slate-600 rounded-lg">
-                <div>
-                    <h2 class="font-bold text-2xl">Foto</h2>
-                    <p class="text-base">nanti ganti foto</p>
-                </div>
-            </div>
+        <div class="mt-7" style="margin-left: 160px;">
+          <p class="font-semibold text-4xl">Menu Berlangganan</p>
         </div>
-        {{-- akhir foto --}}
-        {{-- alur pesanan --}}
-        <div>
-            <p>masih kosong</p>
-        </div>
-        {{-- akhir alur --}}
+  
+        <div class="flex ">
+        <div class="mt-7 mx-auto pb-5 " style="width:80%;  height:550px; background-color: #D9D9D9;border-radius: 20px;">
+      <div class="flex">
+          <div class="">
+          <p class="text-3xl font-bold" style="margin: 25px 0 0 35px;">Langganan 3 Hari</p>
+          <img src="{{ asset('images/food.png') }}" alt="" width="286px" style="height: 355px; margin: 30px 0 0 35px;">
+      </div>
+      <div class="" style="margin: 100px 0 0 60px;">
+          <p class="font-bold mb-2" style="font-size: 26px;">Durasi</p>
+          <p class="text-2xl font-normal mb-4" style="margin-left:30px">3 Hari</p>
+          <p class="font-bold" style="font-size: 26px;">Jadwal Pengiriman</p>
+          <ul class="text-2xl font-normal mb-4 list-disc	" style="margin-left:60px">
+              <li>Sarapan (07.00 - 09.00)</li>
+              <li>Makan Siang (12.00 - 15.00)</li>
+          </ul>
+          <p class="font-bold mb-2" style="font-size: 26px;">Harga</p>
+          <p class="text-2xl font-normal" style="margin-left:30px">Rp 180.000</p>
+      </div>
+  </div>
+  <div class="relative" style="height: 80px;">
+  <a href="{{ route('payment.index') }}" type="button" class="focus:outline-none absolute right-5 bottom-0 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium text-sm py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" style="padding: 10px 80px 16px 80px; font-size:28px; border-radius: 20px;">Pesan</a>
+  </div>
+  </div>
+      </div>
+  
+      <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
     </body>
 </html>

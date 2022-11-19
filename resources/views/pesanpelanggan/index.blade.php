@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Restu Catering</title>
+        <title>Laravel</title>
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -34,7 +34,7 @@
                             @if (Route::has('login'))
                                 @auth
                                 <li>
-                                    <a href="#location" class="py-2 mx-6 text-lg font-bold text-white">Home</a>
+                                    <a href="{{route('welcome')}}" class="py-2 mx-6 text-lg font-bold text-white">Home</a>
                                 </li>
                                 <li>
                                     <a href="{{route('menu.index')}}" class="py-2 mx-6 text-lg font-bold text-white">Menu</a>
@@ -65,19 +65,75 @@
             </div>
         </header>
         {{-- foto --}}
-        <div class="py-20 max-w-screen-lg mx-auto relative">
-            <div class="p-24 h-80 flex items-center bg-slate-600 rounded-lg">
-                <div>
-                    <h2 class="font-bold text-2xl">Foto</h2>
-                    <p class="text-base">nanti ganti foto</p>
+        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="mt-4 mx-4 flex justify-end" style="visibility: hidden;">
+                <a href="" class="inline-flex items-center py-2 px-3 text-md font-medium text-center text-white bg-emerald-500 rounded-lg hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                    Tambah Menu Baru
+                </a>
+            </div>
+            <div class="flex">
+                <div class="mx-auto" style="width: 95%;">
+                    <p class="text-5xl mb-6 mt-6 font-extrabold">Pesanan</p>
+                    <p class="font-semibold text-4xl" style="margin-left:65px">Menu Dipesan</p>
                 </div>
             </div>
+            
+            <div class="flex">
+                <div class="mx-auto">
+                    <table class="" style="width: 1300px;">
+                        <tr class="border-b-2 border-black" style="height:90px;">
+                            <th class="text-center font-medium " style="width: 30%;font-size: 28px; ">Menu</th>
+                            <th class="text-center font-medium " style="width:10% ;font-size: 28px; ">Kuantitas</th>
+                            <th class="text-center font-medium " style="width:25% ;font-size: 28px; ">Jenis</th>
+                            <th class="text-center font-medium " style="width: 25%;font-size: 28px; ">Status</th>
+                            <th class="text-center font-medium " style="width:10% ;font-size: 28px; ">Aksi</th>
+                        </tr>
+                        <tr>
+                            <td class="text-center font-medium text-2xl" style="margin-bottom: 20px; margin-top: 40px;">Ayam Pop</td>
+                            <td class="text-center font-medium text-2xl" style="margin-bottom: 20px; margin-top: 40px;">1</td>
+                            <td class="text-center font-medium text-2xl" style="margin-bottom: 20px; margin-top: 40px;">Harian</td>
+                            <td>
+                                <div class="bg-green-400 rounded-full">
+                                    <p class="py-1 text-white text-sm text-center" style="padding-right:40px; padding-left:40px;margin-top: 40px;margin-bottom: 20px; ">Selesai</p>
+                                </div>
+                            </td>
+                            <td> <div class="flex items-center mx-auto"style="margin-top: 40px;margin-bottom: 20px;">
+                                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4  text-green-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-0 dark:bg-gray-700 dark:border-gray-600" style="margin-left:75px;">
+                            </div></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center font-medium text-2xl" style="margin-bottom: 20px; margin-top: 40px;">Ayam Pop</td>
+                            <td class="text-center font-medium text-2xl" style="margin-bottom: 20px; margin-top: 40px;">1</td>
+                            <td class="text-center font-medium text-2xl" style="margin-bottom: 20px; margin-top: 40px;">Langganan</td>
+                            <td>
+                                <div class="bg-yellow-400 rounded-full">
+                                    <p class="py-1 text-white text-sm text-center" style="padding-right:40px; padding-left:40px;margin-top: 40px;margin-bottom: 20px; ">Diproses</p>
+                                </div>
+                            </td>
+                            <td> <div class="flex items-center mx-auto"style="margin-top: 40px;margin-bottom: 20px;">
+                                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4  text-green-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-0 dark:bg-gray-700 dark:border-gray-600" style="margin-left:75px;">
+                            </div></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center font-medium text-2xl" style="margin-bottom: 20px; margin-top: 40px;">Ayam Pop</td>
+                            <td class="text-center font-medium text-2xl" style="margin-bottom: 20px; margin-top: 40px;">1</td>
+                            <td class="text-center font-medium text-2xl" style="margin-bottom: 20px; margin-top: 40px;">Harian</td>
+                            <td>
+                                <div class="bg-red-400 rounded-full">
+                                    <p class="py-1 text-white text-sm text-center" style="padding-right:40px; padding-left:40px;margin-top: 40px;margin-bottom: 20px; ">Menunggu Pembayaran</p>
+                                </div>
+                            </td>
+                            <td> <div class="flex items-center mx-auto"style="margin-top: 40px;margin-bottom: 20px;">
+                                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4  text-green-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-0 dark:bg-gray-700 dark:border-gray-600" style="margin-left:75px;">
+                            </div></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>      
         </div>
-        {{-- akhir foto --}}
-        {{-- alur pesanan --}}
-        <div>
-            <p>masih kosong</p>
-        </div>
-        {{-- akhir alur --}}
+        <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
     </body>
 </html>
