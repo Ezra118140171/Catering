@@ -14,8 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('kas', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('id_kas');
+            $table->string('nama_transaksi');
+            $table->date('tgl_transaksi');
+            $table->string('uang_keluar');
+            $table->string('foto'); 
         });
     }
 
