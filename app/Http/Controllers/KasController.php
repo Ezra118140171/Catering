@@ -17,7 +17,7 @@ class KasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         $kas = Kas::all();
         return view('kas.index', compact('kas'));
@@ -43,16 +43,12 @@ class KasController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-
-        $nm = $request->foto;
-        $namaFile = $nm->getClientOriginalName();
    
         $kas = new Kas();
         $kas->nama_transaksi = $request->nama_transaksi;
         $kas->tgl_transaksi = $request->tgl_transaksi;
+        $kas->uang_masuk = $request->uang_masuk;
         $kas->uang_keluar = $request->uang_keluar;
-        $kas->foto = $namaFile;
-        $nm->move(public_path().'/imgKas',$namaFile);
         $kas->save();
 
         return redirect(route('kas.index'));
@@ -64,10 +60,9 @@ class KasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $id)
+    public function show($id)
     {
-        $kas = Kas::findorfail($id);
-        return view('kas.show', compact('kas'));
+        //
     }
 
     /**
@@ -79,7 +74,7 @@ class KasController extends Controller
     public function edit(Request $request, $id)
     {
         $kas = Kas::findorfail($id);
-        return view('kas.edit', compact('kas'));
+        return view('Halaman/BukuKas/edit', compact('kas'));
     }
 
     /**
@@ -92,17 +87,14 @@ class KasController extends Controller
     public function update(Kas $kas, Request $request)
     {
         $input = $request->all();
-
-        $nm = $request->foto;
-        $namaFile = $nm->getClientOriginalName();
+   
         $kas->nama_transaksi = $request->nama_transaksi;
         $kas->tgl_transaksi = $request->tgl_transaksi;
+        $kas->uang_masuk = $request->uang_masuk;
         $kas->uang_keluar = $request->uang_keluar;
-        $kas->foto = $namaFile;
-        $nm->move(public_path().'/imgKas',$namaFile);
         $kas->save();
 
-        return redirect(route('kas.index'));
+        return redirect(route('kas'));
     }
 
     /**
