@@ -10,14 +10,14 @@ use Illuminate\Http\RedirectResponse;
 use App\Http\Resources\Kas as KasResource;
 
 
-class KasController extends Controller
+class UangKasController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         $kas = Kas::all();
         return view('kas.index', compact('kas'));
@@ -95,6 +95,7 @@ class KasController extends Controller
 
         $nm = $request->foto;
         $namaFile = $nm->getClientOriginalName();
+   
         $kas->nama_transaksi = $request->nama_transaksi;
         $kas->tgl_transaksi = $request->tgl_transaksi;
         $kas->uang_keluar = $request->uang_keluar;

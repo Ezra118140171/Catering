@@ -53,6 +53,30 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
+        <div class="mt-3">
+            <x-input-label for="no_tel" :value="__('No. Telephone')"/>
+            <x-text-input type="text"
+                     name="no_tel"
+                     id="no_tel"
+                     value="{{ old('no_tel') }}"
+                     required
+                     autofocus
+            />
+            <x-input-error :messages="$errors->get('no_tel')" class="mt-2" />
+        </div>
+
+        <div class="mt-3">
+            <x-input-label for="alamat" :value="__('Alamat')"/>
+            <x-text-input type="text"
+                     name="alamat"
+                     id="alamat"
+                     value="{{ old('alamat') }}"
+                     required
+                     autofocus
+            />
+            <x-input-error :messages="$errors->get('alamat')" class="mt-2" />
+        </div>
+
         <div class="flex flex-col items-end mt-4">
             <x-primary-button class="w-full">
                 {{ __('Register') }}

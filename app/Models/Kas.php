@@ -82,8 +82,8 @@ class Kas extends Model
         'id_kas',
         'nama_transaksi',
         'tgl_transaksi',
-        'uang_masuk',
         'uang_keluar',
+        'foto',
     ];
 
     const LANGUAGES = [
@@ -115,7 +115,6 @@ class Kas extends Model
     public static $rules = [
         'nama_transaksi'    => 'required',
         'tgl_transaksi'          => 'required',
-        'uang_masuk'      => 'required',
     ];
 
 
