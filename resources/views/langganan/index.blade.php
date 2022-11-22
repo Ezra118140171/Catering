@@ -21,12 +21,12 @@
         </style>
     </head>
     <body class="antialiased">
-        <header class="bg-emerald-700 absolute top-0 left-0 w-full flex items-center z-10">
+        <header class="bg-emerald-700 absolute top-0 left-0 w-full max-h-20 flex items-center z-10">
             <div class="container">
                 <div class="flex items-center justify-between relative">
                     <div class="px-11">
                         <a href="#home">
-                            <img src="{{asset('images/namalogo.png')}}" alt="" srcset="" style="transform: scale(0.6)">
+                            <img src="{{asset('images/namalogo.png')}}" alt="" srcset="" style="transform: scale(0.15)">
                         </a>
                     </div>
                     <nav class="block static max-w-full">
@@ -65,7 +65,7 @@
             </div>
         </header>
         {{-- foto --}}
-        
+
         <div class="mt-10" style="margin-left: 100px;">
             <p class="font-semibold text-4xl">Menu berlangganan</p>
           </div>
@@ -106,7 +106,7 @@
               </div>
           </div>
           </div>
-        
+
         <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
     </body>
 </html>

@@ -21,12 +21,12 @@
         </style>
     </head>
     <body class="antialiased">
-        <header class="bg-emerald-700 absolute top-0 left-0 w-full flex items-center z-10">
+        <header class="bg-emerald-700 absolute top-0 left-0 w-full max-h-20 flex items-center z-10">
             <div class="container">
                 <div class="flex items-center justify-between relative">
                     <div class="px-11">
                         <a href="#home">
-                            <img src="{{asset('images/namalogo.png')}}" alt="" srcset="" style="transform: scale(0.6)">
+                            <img src="{{asset('images/namalogo.png')}}" alt="" srcset="" style="transform: scale(0.15)">
                         </a>
                     </div>
                     <nav class="block static max-w-full">
@@ -68,21 +68,21 @@
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="mt-24 p-6 border-b-2 border-emerald-600">
                 {{-- KARTU --}}
-                <div class="col-span-1">
+                <div class="grid gap-4 grid-cols-4 grid-rows-3">
                 {{-- @foreach($katalog as $item) --}}
-                <div class=" bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-200 dark:border-gray-600" style="width:290px" style="height: 414px;">
-                    <a href="#">
-                      <img class="rounded-t-lg" src="{{ asset('images/food.png') }}" alt="" style="width:290px" />
-                    </a>
-                    <div class="p-3">
-                      <p class="text-2xl font-medium">Ayam Bakar</p>
-                      <p class="text-xs mt-3 pb-6" style="width:159px">Nasi, Ayam Pop, Perkedel, Tumis Daun Singkong</p>
-                      <div class=" flex" style="gap:58%">
-                        <p class="text-xs ">Rp. 30.000</p>
-                        <button type="button" class="focus:outline-none  text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded text-xs p-1 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"data-modal-toggle="defaultModal">Tambah</button>
-                      </div>
+                    <div class=" bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-200 dark:border-gray-600" style="width:290px" style="height: 414px;">
+                        <a href="#">
+                            <img class="rounded-t-lg" src="{{ asset('images/food.png') }}" alt="" style="width:290px" />
+                        </a>
+                        <div class="p-3">
+                            <p class="text-2xl font-medium">Ayam Bakar</p>
+                            <p class="text-xs mt-3 pb-6" style="width:159px">Nasi, Ayam Pop, Perkedel, Tumis Daun Singkong</p>
+                            <div class=" flex" style="gap:58%">
+                                <p class="text-xs ">Rp. 30.000</p>
+                                <button type="button" class="focus:outline-none  text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded text-xs p-1 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"data-modal-toggle="defaultModal">Tambah</button>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
                 {{-- @endforeach --}}
                 {{-- akhir kartu --}}

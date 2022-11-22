@@ -30,7 +30,7 @@ require __DIR__.'/auth.php';
 
 
 
-Route::middleware('role:admin')->group(function () {
+Route::middleware('role:user')->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->middleware(['auth', 'verified'])->name('dashboard');
@@ -40,9 +40,9 @@ Route::middleware('role:admin')->group(function () {
     // Route::view('pesanan.riwayat','pesanan.riwayat.index')->name('pesanan.riwayat.index');
     // Route::view('pesanan.masuk.show','pesanan.masuk.show')->name('pesanan.masuk.show');
     // Route::view('pesanan.riwayat.show','pesanan.riwayat.show')->name('pesanan.riwayat.show');
-    
+
     Route::resource('pengiriman', PengirimanController::class);
-  
+
     Route::prefix('pesanan')->as('pesanan.')->group(function(){
         Route::resource('pesananMasuk', PesananMasukController::class);
         Route::resource('pesananRiwayat', PesananRiwayatController::class);
@@ -64,12 +64,12 @@ Route::middleware('role:admin')->group(function () {
     Route::get('/kas/{kas}/edit','\App\Http\Controllers\UangKasController@edit')->name('kas.edit');
     Route::put('/kas/{kas}','\App\Http\Controllers\UangKasController@update')->name('kas.update');
     Route::get('/kas/{kas}','\App\Http\Controllers\UangKasController@show')->name('kas.show');
-    
+
 
     Route::view('menu.index','menu.index')->name('menu.index');
 
     Route::view('home.index','home.index')->name('home.index');
-    
+
     Route::view('langganan.index','langganan.index')->name('langganan.index');
 
     Route::view('pesanpelanggan.detil.index','pesanpelanggan.detil.index')->name('pesanpelanggan.detil.index');
