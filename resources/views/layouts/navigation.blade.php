@@ -6,7 +6,7 @@
     <div class="flex items-center justify-center mt-8">
         <div class="flex items-center">
             <a href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                <span class="text-white text-3xl mx-2 font-semibold">{{ __('Logo') }}</span>
+                <img src="{{ asset('images/namalogo.png') }}" alt="" style="transform: scale(0.75)">
             </a>
         </div>
     </div>

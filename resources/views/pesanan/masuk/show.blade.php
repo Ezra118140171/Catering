@@ -23,18 +23,18 @@
                     </div>
                     <div class="pt-4 flex justify-items-start">
                         <a href="#"
-                            class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-gray-100 bg-red-500 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                            class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-gray-100 bg-red-500 rounded-lg hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-blue-300">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                             </svg>
-                            Terima
+                            Tolak
                         </a>
                         <a href="#"
-                            class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-gray-100 bg-green-500 rounded-lg hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                            class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-gray-100 bg-emerald-500 rounded-lg hover:bg-emerald-600 focus:ring-4 focus:outline-none focus:ring-blue-300">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                             </svg>
-                            Tolak
+                            Terima
                         </a>
                     </div>
                 </div>

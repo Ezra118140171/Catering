@@ -28,8 +28,7 @@ Route::get('/', function () {
 
 require __DIR__.'/auth.php';
 
-
-Route::group(['middleware' => ['role:admin']], function () {
+Route::middleware('role:admin')->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->middleware(['auth', 'verified'])->name('dashboard');
@@ -39,9 +38,9 @@ Route::group(['middleware' => ['role:admin']], function () {
     // Route::view('pesanan.riwayat','pesanan.riwayat.index')->name('pesanan.riwayat.index');
     // Route::view('pesanan.masuk.show','pesanan.masuk.show')->name('pesanan.masuk.show');
     // Route::view('pesanan.riwayat.show','pesanan.riwayat.show')->name('pesanan.riwayat.show');
-    
+
     Route::resource('pengiriman', PengirimanController::class);
-  
+
     Route::prefix('pesanan')->as('pesanan.')->group(function(){
         Route::resource('pesananMasuk', PesananMasukController::class);
         Route::resource('pesananRiwayat', PesananRiwayatController::class);
@@ -66,10 +65,11 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/export', '\App\Http\Controllers\UangKasController@export_excel')->name('kas.export');
     
 
+
     Route::view('menu.index','menu.index')->name('menu.index');
 
     Route::view('home.index','home.index')->name('home.index');
-    
+
     Route::view('langganan.index','langganan.index')->name('langganan.index');
 
     Route::view('pesanpelanggan.detil.index','pesanpelanggan.detil.index')->name('pesanpelanggan.detil.index');

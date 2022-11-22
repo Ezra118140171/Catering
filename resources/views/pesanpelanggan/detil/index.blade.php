@@ -21,12 +21,12 @@
         </style>
     </head>
     <body class="antialiased">
-        <header class="bg-emerald-700 absolute top-0 left-0 w-full flex items-center z-10">
+        <header class="bg-emerald-700 absolute top-0 left-0 w-full max-h-20 flex items-center z-10">
             <div class="container">
                 <div class="flex items-center justify-between relative">
                     <div class="px-11">
                         <a href="#home">
-                            <img src="{{asset('images/namalogo.png')}}" alt="" srcset="" style="transform: scale(0.6)">
+                            <img src="{{asset('images/namalogo.png')}}" alt="" srcset="" style="transform: scale(0.15)">
                         </a>
                     </div>
                     <nav class="block static max-w-full">
@@ -65,35 +65,37 @@
             </div>
         </header>
         {{-- foto --}}
-        <div class="mt-7" style="margin-left: 160px;">
-          <p class="font-semibold text-4xl">Menu Berlangganan</p>
+        <div class="mt-24 bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="mt-7" style="margin-left: 160px;">
+              <p class="font-semibold text-4xl">Menu Berlangganan</p>
+            </div>
+
+            <div class="flex ">
+                <div class="mt-7 mx-auto pb-5 " style="width:80%;  height:550px; background-color: #D9D9D9;border-radius: 20px;">
+                    <div class="flex">
+                        <div class="">
+                            <p class="text-3xl font-bold" style="margin: 25px 0 0 35px;">Langganan 3 Hari</p>
+                            <img src="{{ asset('images/food.png') }}" alt="" width="286px" style="height: 355px; margin: 30px 0 0 35px;">
+                        </div>
+                        <div class="" style="margin: 100px 0 0 60px;">
+                            <p class="font-bold mb-2" style="font-size: 26px;">Durasi</p>
+                            <p class="text-2xl font-normal mb-4" style="margin-left:30px">3 Hari</p>
+                            <p class="font-bold" style="font-size: 26px;">Jadwal Pengiriman</p>
+                            <ul class="text-2xl font-normal mb-4 list-disc	" style="margin-left:60px">
+                                <li>Sarapan (07.00 - 09.00)</li>
+                                <li>Makan Siang (12.00 - 15.00)</li>
+                            </ul>
+                            <p class="font-bold mb-2" style="font-size: 26px;">Harga</p>
+                            <p class="text-2xl font-normal" style="margin-left:30px">Rp 180.000</p>
+                        </div>
+                    </div>
+                    <div class="relative" style="height: 80px;">
+                        <a href="{{ route('payment.index') }}" type="button" class="focus:outline-none absolute right-5 bottom-0 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium text-sm py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" style="padding: 10px 80px 16px 80px; font-size:28px; border-radius: 20px;">Pesan</a>
+                    </div>
+                </div>
+            </div>
         </div>
-  
-        <div class="flex ">
-        <div class="mt-7 mx-auto pb-5 " style="width:80%;  height:550px; background-color: #D9D9D9;border-radius: 20px;">
-      <div class="flex">
-          <div class="">
-          <p class="text-3xl font-bold" style="margin: 25px 0 0 35px;">Langganan 3 Hari</p>
-          <img src="{{ asset('images/food.png') }}" alt="" width="286px" style="height: 355px; margin: 30px 0 0 35px;">
-      </div>
-      <div class="" style="margin: 100px 0 0 60px;">
-          <p class="font-bold mb-2" style="font-size: 26px;">Durasi</p>
-          <p class="text-2xl font-normal mb-4" style="margin-left:30px">3 Hari</p>
-          <p class="font-bold" style="font-size: 26px;">Jadwal Pengiriman</p>
-          <ul class="text-2xl font-normal mb-4 list-disc	" style="margin-left:60px">
-              <li>Sarapan (07.00 - 09.00)</li>
-              <li>Makan Siang (12.00 - 15.00)</li>
-          </ul>
-          <p class="font-bold mb-2" style="font-size: 26px;">Harga</p>
-          <p class="text-2xl font-normal" style="margin-left:30px">Rp 180.000</p>
-      </div>
-  </div>
-  <div class="relative" style="height: 80px;">
-  <a href="{{ route('payment.index') }}" type="button" class="focus:outline-none absolute right-5 bottom-0 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium text-sm py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" style="padding: 10px 80px 16px 80px; font-size:28px; border-radius: 20px;">Pesan</a>
-  </div>
-  </div>
-      </div>
-  
+
       <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
     </body>
 </html>
