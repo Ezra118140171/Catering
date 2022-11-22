@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Models\Kas;
+use App\Exports\KasExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Validator;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Resources\Kas as KasResource;
@@ -120,4 +122,10 @@ class UangKasController extends Controller
    
         return redirect(route('kas'));
     }
+
+    public function export_excel()
+	{
+		return Excel::download(new KasExport, 'kas.xlsx');
+        return view('kas.index');
+	}
 }

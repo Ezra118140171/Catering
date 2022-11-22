@@ -29,8 +29,7 @@ Route::get('/', function () {
 require __DIR__.'/auth.php';
 
 
-
-Route::middleware('role:admin')->group(function () {
+Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->middleware(['auth', 'verified'])->name('dashboard');
@@ -64,6 +63,7 @@ Route::middleware('role:admin')->group(function () {
     Route::get('/kas/{kas}/edit','\App\Http\Controllers\UangKasController@edit')->name('kas.edit');
     Route::put('/kas/{kas}','\App\Http\Controllers\UangKasController@update')->name('kas.update');
     Route::get('/kas/{kas}','\App\Http\Controllers\UangKasController@show')->name('kas.show');
+    Route::get('/export', '\App\Http\Controllers\UangKasController@export_excel')->name('kas.export');
     
 
     Route::view('menu.index','menu.index')->name('menu.index');
@@ -85,3 +85,5 @@ Route::middleware('role:admin')->group(function () {
     Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
 });
+
+
