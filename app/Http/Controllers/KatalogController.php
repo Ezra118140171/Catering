@@ -45,7 +45,7 @@ class KatalogController extends Controller
 
         $nm = $request->foto;
         $namaFile = $nm->getClientOriginalName();
-   
+        
         $katalog = new Katalog();
         $katalog->nama_makanan = $request->nama_makanan;
         $katalog->harga = $request->harga;
@@ -54,7 +54,7 @@ class KatalogController extends Controller
         $nm->move(public_path().'/img',$namaFile);
         $katalog->save();
 
-       
+
         return redirect(route('katalog.index'));
     }
 
@@ -91,11 +91,11 @@ class KatalogController extends Controller
     public function update(Katalog $katalog, Request $request)
     {
         $input = $request->all();
-        
+
         $nm = $request->foto;
         $namaFile = $nm->getClientOriginalName();
-   
-        
+
+
         $katalog->nama_makanan = $request->nama_makanan;
         $katalog->harga = $request->harga;
         $katalog->keterangan = $request->keterangan;
@@ -103,7 +103,7 @@ class KatalogController extends Controller
         $nm->move(public_path().'/img',$namaFile);
         $katalog->save();
 
-       
+
         return redirect(route('katalog.index'));
     }
 
@@ -118,7 +118,7 @@ class KatalogController extends Controller
         $katalog = Katalog::find($id);
 
         $katalog->delete();
-   
+
         return redirect(route('katalog.index'));
     }
 }

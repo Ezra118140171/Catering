@@ -64,46 +64,27 @@
                 </div>
             </div>
         </header>
-        {{-- foto --}}
+        {{-- akhir navbar --}}
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-            <div class="mt-4 mx-4 flex justify-end" style="visibility: hidden;">
-                <a href="" class="inline-flex items-center py-2 px-3 text-md font-medium text-center text-white bg-emerald-500 rounded-lg hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-blue-300">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                </svg>
-                    Tambah Menu Baru
-                </a>
-            </div>
-            <div class="p-6 border-b-2 border-emerald-600">
+            <div class="mt-24 p-6 border-b-2 border-emerald-600">
                 {{-- KARTU --}}
                 <div class="col-span-1">
                 {{-- @foreach($katalog as $item) --}}
-                    <div class="max-w-3xl mx-2 px-3 mb-3">
-                        <div class="mt-6 grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-                            <div
-                                class="max-w-xl bg-gray-400 rounded-lg border border-gray-400 shadow-md">
-                                <a href="#" class="align-middle">
-                                    <img class="rounded-t-lg" src="https://img-global.cpcdn.com/recipes/ac85e0db2621fd00/1280x1280sq70/photo.webp">
-                                </a>
-                                <div class="p-5">
-                                    <h5 class="mb-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Pindang</h5>
-                                    <h2 class="mb-8 text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Rp. 10.000</h2>
-                                    <div class="flex justify-end">
-                                        {{-- <form action="{{ route('katalog.destroy', ['katalog' => $item->id_katalog])}}" method="post"> --}}
-                                            {{-- @csrf --}}
-                                            {{-- @method('DELETE') --}}
-                                                <a href=""
-                                                    class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-gray-100 bg-emerald-500 rounded-lg hover:bg-emerald-600 focus:ring-4 focus:outline-none focus:ring-blue-300">
-                                                    Tambah
-                                                </a>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class=" bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-200 dark:border-gray-600" style="width:290px" style="height: 414px;">
+                    <a href="#">
+                      <img class="rounded-t-lg" src="{{ asset('images/food.png') }}" alt="" style="width:290px" />
+                    </a>
+                    <div class="p-3">
+                      <p class="text-2xl font-medium">Ayam Bakar</p>
+                      <p class="text-xs mt-3 pb-6" style="width:159px">Nasi, Ayam Pop, Perkedel, Tumis Daun Singkong</p>
+                      <div class=" flex" style="gap:58%">
+                        <p class="text-xs ">Rp. 30.000</p>
+                        <button type="button" class="focus:outline-none  text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded text-xs p-1 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"data-modal-toggle="defaultModal">Tambah</button>
+                      </div>
                     </div>
-                {{-- @endforeach --}}
+                  </div>
                 </div>
+                {{-- @endforeach --}}
                 {{-- akhir kartu --}}
                 <div class="flex justify-end">
                     <div class="flex justify-end">
@@ -112,7 +93,7 @@
                             Pemesanan
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" style="margin-left: 5%">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>                              
+                            </svg>
                         </a>
                     </div>
                 </div>

@@ -65,7 +65,7 @@
             </div>
         </header>
         {{-- foto --}}
-        <div class="mt-4 mx-4 flex justify-end" style="visibility: hidden;">
+        <div class="mt-14 mx-4 flex justify-end" style="visibility: hidden;">
             <a href="" class="inline-flex items-center py-2 px-3 text-md font-medium text-center text-white bg-emerald-500 rounded-lg hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-blue-300">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -87,11 +87,11 @@
           </div>
           <hr class="my-8 h-px mx-auto bg-gray-200 border-0 dark:bg-gray-700" style="width:85% ;">
           <!--End Alamat -->
-          
+
           <!-- Pemesanan -->
           <div class="w-[80%] mx-auto" style="width: 85%;">
           <p class="text-4xl mt-6">Makanan Dipesan</p>
-          
+
           <Table class="border-b-2 border-black" style="width: 100%;">
             <tr  class="border-b-2 border-black" style="height:75px; ">
               <th style="width:10%">
@@ -130,28 +130,28 @@
             </div>
           </td>
             </tr>
-            
+
           </Table >
-          
+
           </div>
           <!-- End Pemesanan -->
-          
+
           <!-- Total Harga -->
           <div class="mt-4 mb-4" style="width: 90%;">
             <div class="">
           <p class="text-3xl text-right">Total Harga &nbsp;&nbsp;&nbsp;<span class="mr-8">:</span>Rp. 180.000</p></div>
           </div>
           <!-- End Total Harga -->
-          
+
           <!-- Tombol Pesan-->
-          <div class="pb-5" style="padding-bottom: 70px;"> 
+          <div class="pb-5" style="padding-bottom: 70px;">
           <div class="relative" style="width: 93%;">
           <a href="{{ route('subscribe.index') }}" type="button" class="focus:outline-none absolute right-0 text-white text-center bg-green-700 hover:bg-green-800 focus:ring-4  focus:ring-green-300 font-medium rounded-lg text-2xl px-10 py-1  mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" style="width:192px">Pesan</a>
           </div>
           </div>
           <!--End Tombol Pesan-->
-          
-          
+
+
           <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
     </body>
 </html>
