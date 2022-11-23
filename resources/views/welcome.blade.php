@@ -34,20 +34,37 @@
                             @if (Route::has('login'))
                                 @auth
                                 <li>
-                                    <a href="#location" class="py-2 mx-6 text-lg font-bold text-white">Home</a>
+                                    <a href="/" class="py-2 mx-6 text-lg font-bold text-white">Home</a>
                                 </li>
+                                @if (auth()->user()->hasRole('user'))
                                 <li>
                                     <a href="{{route('menu.index')}}" class="py-2 mx-6 text-lg font-bold text-white">Menu</a>
                                 </li>
+                                @endif
+                                @if (auth()->user()->hasRole('user'))
                                 <li>
                                     <a href="{{ route('langganan.index') }}" class="py-2 mx-6 text-lg font-bold text-white">Langganan</a>
                                 </li>
+                                @endif
+                                @if (auth()->user()->hasRole('user'))
                                 <li>
                                     <a href="{{route('pesanpelanggan.index')}}" class="py-2 mx-6 text-lg font-bold text-white">Pesanan</a>
                                 </li>
+                                @endif
+                                @if (auth()->user()->hasRole('user'))
+                                <form action="{{ route('logout') }}" method="post">
+                                    @csrf
+                                    <li>
+                                        <button class="py-2 mx-6 text-lg font-bold text-white">Logout</button>
+                                    </li>
+                                </form>
+                                @endif
+                                
+                                @if (auth()->user()->hasRole('admin'))
                                 <li>
                                     <a href="{{ url('/dashboard') }}" class=" py-2 mx-6 text-lg font-bold text-white dark:text-white">Dashboard</a>
                                 </li>
+                                @endif
                                 @else
                                 <li>
                                     <a href="{{ route('login') }}" class=" mx-6 text-lg font-bold text-white dark:text-white">Log in</a>

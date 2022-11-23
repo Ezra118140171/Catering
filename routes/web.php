@@ -29,9 +29,11 @@ Route::get('/', function () {
 require __DIR__.'/auth.php';
 
 Route::middleware('role:admin')->group(function () {
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->middleware(['auth', 'verified'])->name('dashboard');
+    
     Route::view('about', 'about')->name('about');
     Route::view('welcome','welcome')->name('welcome');
     // Route::view('pesanan.masuk','pesanan.masuk.index')->name('pesanan.masuk.index');
@@ -84,6 +86,22 @@ Route::middleware('role:admin')->group(function () {
 
     Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+});
+
+Route::middleware('role:user')->group(function () {
+    
+
+    Route::view('menu.index','menu.index')->name('menu.index');
+    Route::view('welcome','welcome')->name('welcome');
+    Route::view('langganan.index','langganan.index')->name('langganan.index');
+
+    Route::view('pesanpelanggan.detil.index','pesanpelanggan.detil.index')->name('pesanpelanggan.detil.index');
+
+    Route::view('pesanpelanggan.index','pesanpelanggan.index')->name('pesanpelanggan.index');
+
+    Route::view('payment.index','payment.index')->name('payment.index');
+
+    Route::view('subscribe.index','subscribe.index')->name('subscribe.index');
 });
 
 
