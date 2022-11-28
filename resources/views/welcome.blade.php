@@ -1,10 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
         <title>Restu Catering</title>
+        <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css" />
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -29,7 +32,7 @@
                             <img src="{{asset('images/namalogo.png')}}" alt="" srcset="" style="transform: scale(0.15)">
                         </a>
                     </div>
-                    <nav class="block static max-w-full">
+                    <nav class="block static max-w-full z-10">
                         <ul class="flex">
                             @if (Route::has('login'))
                                 @auth
@@ -82,19 +85,85 @@
             </div>
         </header>
         {{-- foto --}}
-        <div class="py-20 max-w-screen-lg mx-auto relative">
-            <div class="p-24 h-80 flex items-center bg-slate-600 rounded-lg">
-                <div>
-                    <h2 class="font-bold text-2xl">Foto</h2>
-                    <p class="text-base">nanti ganti foto</p>
+        <div id="default-carousel" class="relative mt-20" data-carousel="slide">
+        <!-- Carousel wrapper -->
+            <div class="relative h-[500px] overflow-hidden">
+                <!-- Item 1 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <span class="absolute text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
+                    <img src="{{asset('images/ayam.jpeg')}}" class="absolute block w-full  h-[500px]   -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </div>
+                <!-- Item 2 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="{{asset('images/pindang.jpg')}}" class="absolute block w-full  h-[500px]  -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </div>
+                <!-- Item 3 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="{{asset('images/ayam.jpeg')}}" class="absolute block w-full  h-[500px]  -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </div>
+            </div>
+            <!-- Slider indicators -->
+            <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+            </div>
+        </div>
+
+        <div class="flex">
+            <div class="mx-auto">
+                <a href="{{ route('login') }}" type="button" class="focus:outline-none text-white bg-emerald-700 hover:bg-green-800 focus:ring-0 focus:ring-green-300 font-semibold rounded-full text-[36px] mt-8 px-12 py-1 mr-2 mb-2 dark:hover:bg-green-700 dark:focus:ring-green-800">Pesan Sekarang</a>
+            </div>
+        </div>
+    <footer class="w-full h-[350px] bg-gradient-to-b  from-lime-900 to-slate-300 mt-8">
+        <div class="flex mx-auto w-4/5">
+            <div class=" flex gap-[400px] mt-8 items-center">
+                <div class="">
+                    <p class="text-black text-3xl font-bold mb-4 text-center">Jam Operasional</p>
+                    <table class="w-[280px]">
+                        <tr class="font-medium text-2xl">
+                            <td>Senin</td>
+                            <td class="text-right">12.00 ; 17.00</td>
+                        </tr>
+                        <tr class="font-medium text-2xl">
+                            <td>Selasa</td>
+                            <td class="text-right">12.00 ; 17.00</td>
+                        </tr>
+                        <tr class="font-medium text-2xl">
+                            <td>Rabu</td>
+                            <td class="text-right">12.00 ; 17.00</td>
+                        </tr>
+                        <tr class="font-medium text-2xl">
+                            <td>Kamis</td>
+                            <td class="text-right">12.00 ; 17.00</td>
+                        </tr>
+                        <tr class="font-medium text-2xl">
+                            <td>Jumat</td>
+                            <td class="text-right">12.00 ; 17.00</td>
+                        </tr>
+                        <tr class="font-medium text-2xl">
+                            <td>Sabtu</td>
+                            <td class="text-right">12.00 ; 17.00</td>
+                        </tr>
+                        <tr class="font-medium text-2xl">
+                            <td>Minggu</td>
+                            <td class="text-right">12.00 ; 17.00</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="">
+                    <p class="font-semibold text-2xl mb-4">Restu Catering</p>
+                    <p class="text-xl font-normal mb-4"><span class="font-semibold">Alamat :</span>Jalan Kaswari, Way Hui, Kec. Jati Agung, Lampung Selatan</p>
+                    <p class="text-xl font-normal"><span class="font-semibold">No Telp :</span> +62 823 7286 8406</p>
                 </div>
             </div>
         </div>
-        {{-- akhir foto --}}
-        {{-- alur pesanan --}}
-        <div>
-            <p>masih kosong</p>
-        </div>
-        {{-- akhir alur --}}
+    </footer>
+
+    
+    
+
+    <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
+        
     </body>
 </html>

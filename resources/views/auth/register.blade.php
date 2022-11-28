@@ -1,6 +1,6 @@
 <x-guest-layout>
     <a href="/" class="flex justify-center items-center">
-        <x-application-logo class="w-20 h-20 text-gray-500 fill-current"/>
+        <img src="{{asset('images/namalogo.png')}}" alt="" srcset="" style="transform: scale(0.7)">
     </a>
 
     <form method="POST" action="{{ route('register') }}">
