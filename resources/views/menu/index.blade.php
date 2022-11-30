@@ -21,69 +21,72 @@
         </style>
     </head>
     <body class="antialiased">
-        <header class="bg-emerald-700 absolute top-0 left-0 w-full max-h-20 flex items-center z-10">
-            <div class="container">
-                <div class="flex items-center justify-between relative">
-                    <div class="px-11">
-                        <a href="#home">
-                            <img src="{{asset('images/namalogo.png')}}" alt="" srcset="" style="transform: scale(0.15)">
-                        </a>
-                    </div>
-                    <nav class="block static max-w-full">
-                        <ul class="flex">
-                            @if (Route::has('login'))
-                                @auth
-                                <li>
-                                    <a href="{{route('welcome')}}" class="py-2 mx-6 text-lg font-bold text-white">Home</a>
-                                </li>
-                                @if (auth()->user()->hasRole('user'))
-                                <li>
-                                    <a href="{{route('menu.index')}}" class="py-2 mx-6 text-lg font-bold text-white">Menu</a>
-                                </li>
-                                @endif
-                                @if (auth()->user()->hasRole('user'))
-                                <li>
-                                    <a href="{{ route('langganan.index') }}" class="py-2 mx-6 text-lg font-bold text-white">Langganan</a>
-                                </li>
-                                @endif
-                                @if (auth()->user()->hasRole('user'))
-                                <li>
-                                    <a href="{{route('pesanpelanggan.index')}}" class="py-2 mx-6 text-lg font-bold text-white">Pesanan</a>
-                                </li>
-                                @endif
-                                @if (auth()->user()->hasRole('user'))
-                                <form action="{{ route('logout') }}" method="post">
-                                    @csrf
+        <header class="shadow mb-2 bg-emerald-700">
+            <div class="relative flex max-w-screen-xl flex-col overflow-hidden px-4 py-4 md:mx-auto md:flex-row md:items-center">
+                <a href="#home" class="flex items-center whitespace-nowrap text-2xl font-black">
+                    <img src="{{asset('images/namalogo.png')}}" class="h-auto w-40" alt="" srcset="" style="">
+                </a>
+                <input type="checkbox" class="peer hidden" id="navbar-open" />
+                <label class="absolute top-5 right-7 cursor-pointer md:hidden" for="navbar-open">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </label>
+                <nav aria-label="Header Navigation" class="peer-checked:mt-8 peer-checked:max-h-56 flex max-h-0 w-full flex-col items-center justify-between overflow-hidden transition-all md:ml-24 md:max-h-full md:flex-row md:items-start">
+                    <ul class="flex flex-col items-center space-y-2 md:ml-auto md:flex-row md:space-y-0">
+                                @if (Route::has('login'))
+                                    @auth
                                     <li>
-                                        <button class="py-2 mx-6 text-lg font-bold text-white">Logout</button>
+                                        <a href="{{route('welcome')}}" class="py-2 mx-6 text-lg font-bold text-white">Home</a>
                                     </li>
-                                </form>
-                                @endif
-                                
-                                @if (auth()->user()->hasRole('admin'))
-                                <li>
-                                    <a href="{{ url('/dashboard') }}" class=" py-2 mx-6 text-lg font-bold text-white dark:text-white">Dashboard</a>
-                                </li>
-                                @endif
-                                @else
-                                <li>
-                                    <a href="{{ route('login') }}" class=" mx-6 text-lg font-bold text-white dark:text-white">Log in</a>
-                                </li>
-                                    @if (Route::has('register'))
-                                        <li>
-                                            <a href="{{ route('register') }}" class="ml-4 mx-6 text-lg font-bold text-white dark:text-white">Register</a>
-                                        </li>
+                                    @if (auth()->user()->hasRole('user'))
+                                    <li>
+                                        <a href="{{route('menu.index')}}" class="py-2 mx-6 text-lg font-bold text-white">Menu</a>
+                                    </li>
                                     @endif
-                                @endauth
-                            @endif
-                        </ul>
-                    </nav>
-                </div>
+                                    @if (auth()->user()->hasRole('user'))
+                                    <li>
+                                        <a href="{{ route('langganan.index') }}" class="py-2 mx-6 text-lg font-bold text-white">Langganan</a>
+                                    </li>
+                                    @endif
+                                    @if (auth()->user()->hasRole('user'))
+                                    <li>
+                                        <a href="{{route('pesanpelanggan.index')}}" class="py-2 mx-6 text-lg font-bold text-white">Pesanan</a>
+                                    </li>
+                                    @endif
+                                    @if (auth()->user()->hasRole('user'))
+                                    <form action="{{ route('logout') }}" method="post">
+                                        @csrf
+                                        <li>
+                                            <button class="py-2 mx-6 text-lg font-bold text-white">Logout</button>
+                                        </li>
+                                    </form>
+                                    @endif
+                                    
+                                    @if (auth()->user()->hasRole('admin'))
+                                    <li>
+                                        <a href="{{ url('/dashboard') }}" class=" py-2 mx-6 text-lg font-bold text-white dark:text-white">Dashboard</a>
+                                    </li>
+                                    @endif
+                                    @else
+                                    <li>
+                                        <a href="{{ route('login') }}" class=" mx-6 text-lg font-bold text-white dark:text-white">Log in</a>
+                                    </li>
+                                        @if (Route::has('register'))
+                                            <li>
+                                                <a href="{{ route('register') }}" class="ml-4 mx-6 text-lg font-bold text-white dark:text-white">Register</a>
+                                            </li>
+                                        @endif
+                                    @endauth
+                                @endif
+                    </ul>
+                </nav>
             </div>
         </header>
         {{-- akhir navbar --}}
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-            <div class="mt-24 p-6 border-b-2 border-emerald-600">
+            <div class="p-6 border-b-2 border-emerald-600">
                 {{-- KARTU --}}
                 <div class="grid gap-4 grid-cols-4 grid-rows-3">
                 {{-- @foreach($katalog as $item) --}}
