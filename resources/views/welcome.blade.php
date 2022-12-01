@@ -55,7 +55,7 @@
                             @endif
                             @if (auth()->user()->hasRole('user'))
                             <li>
-                                <a href="{{route('pesanpelanggan.index')}}" class="py-2 mx-6 text-lg font-bold text-white">Pesanan</a>
+                                <a href="{{route('statuspesanan.index')}}" class="py-2 mx-6 text-lg font-bold text-white">Pesanan</a>
                             </li>
                             @endif
                             @if (auth()->user()->hasRole('user'))

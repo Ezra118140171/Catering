@@ -82,6 +82,8 @@ Route::middleware('role:admin')->group(function () {
 
     Route::view('subscribe.index','subscribe.index')->name('subscribe.index');
 
+    Route::view('statuspesanan.index','statuspesanan.index')->name('statuspesanan.index');
+
     Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
 
     Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
@@ -102,6 +104,9 @@ Route::middleware('role:user')->group(function () {
     Route::view('payment.index','payment.index')->name('payment.index');
 
     Route::view('subscribe.index','subscribe.index')->name('subscribe.index');
+
+    Route::view('statuspesanan.index','statuspesanan.index')->name('statuspesanan.index');
+
 });
 
 
