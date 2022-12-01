@@ -21,16 +21,20 @@
         </style>
     </head>
     <body class="antialiased">
-        <header class="bg-emerald-700 absolute top-0 left-0 w-full max-h-20 flex items-center z-10">
-            <div class="container">
-                <div class="flex items-center justify-between relative">
-                    <div class="px-11">
-                        <a href="#home">
-                            <img src="{{asset('images/namalogo.png')}}" alt="" srcset="" style="transform: scale(0.15)">
-                        </a>
-                    </div>
-                    <nav class="block static max-w-full">
-                        <ul class="flex">
+      <header class="shadow mb-2 bg-emerald-700">
+            <div class="relative flex max-w-screen-xl flex-col overflow-hidden px-4 py-4 md:mx-auto md:flex-row md:items-center">
+                <a href="#home" class="flex items-center whitespace-nowrap text-2xl font-black">
+                    <img src="{{asset('images/namalogo.png')}}" class="h-auto w-40" alt="" srcset="" style="">
+                </a>
+                <input type="checkbox" class="peer hidden" id="navbar-open" />
+                <label class="absolute top-5 right-7 cursor-pointer md:hidden" for="navbar-open">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </label>
+                <nav aria-label="Header Navigation" class="peer-checked:mt-8 peer-checked:max-h-56 flex max-h-0 w-full flex-col items-center justify-between overflow-hidden transition-all md:ml-24 md:max-h-full md:flex-row md:items-start">
+                    <ul class="flex flex-col items-center space-y-2 md:ml-auto md:flex-row md:space-y-0">
                             @if (Route::has('login'))
                                 @auth
                                 <li>
@@ -76,13 +80,12 @@
                                     @endif
                                 @endauth
                             @endif
-                        </ul>
-                    </nav>
-                </div>
+                    </ul>
+                </nav>
             </div>
         </header>
         {{-- foto --}}
-        <div class="mt-14 mx-4 flex justify-end" style="visibility: hidden;">
+        <div class="mx-4 flex justify-end" style="visibility: hidden;">
             <a href="" class="inline-flex items-center py-2 px-3 text-md font-medium text-center text-white bg-emerald-500 rounded-lg hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-blue-300">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
